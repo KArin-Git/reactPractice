@@ -1,26 +1,27 @@
+// const userNameData = ["Arin", "Apichitchon"];
+// const firstName = userNameData[0];
+// const lastName = userNameData[1];
+
+// left-side => destructor the array
+const [firstName, lastName] = ["Arin", "Apichitchon"];
+console.log(firstName);
+console.log(lastName);
+
+// MARKME: second
 const user = {
     name: "Arin",
-    age: 30,
-    // method
-    greet() {
-        console.log("Hello " + this.name);
-    }
+    age: 31
 };
 
-console.log(user);
-console.log("age is: " + user.age);
-user.greet();
+// const name = user.name
+// console.log(name);
 
-class User {
-    constructor(nanme, age) {
-        this.name = name;
-        this.age = age;
-    }
-    greet() {
-        console.log("Hi");
-    }
-}
+// MARKME: obj's pull out from the property's name but we can use a alias with :
+const {name: userName, age, locate} = {
+    name: "Arin2",
+    age: 32,
+    locate: "ON"
+};
 
-const user1 = new User("John", 25);
-console.log(user1);
-user1.greet();
+console.log(userName);
+console.log(locate);
