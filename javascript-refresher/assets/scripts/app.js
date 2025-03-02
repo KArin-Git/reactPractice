@@ -1,27 +1,47 @@
-// const userNameData = ["Arin", "Apichitchon"];
-// const firstName = userNameData[0];
-// const lastName = userNameData[1];
-
-// left-side => destructor the array
-const [firstName, lastName] = ["Arin", "Apichitchon"];
-console.log(firstName);
-console.log(lastName);
-
-// MARKME: second
+const hobbies = ["Sports", "Cooling"];
 const user = {
     name: "Arin",
     age: 31
 };
 
-// const name = user.name
-// console.log(name);
+const newHobbies = ["Reading"];
 
-// MARKME: obj's pull out from the property's name but we can use a alias with :
-const {name: userName, age, locate} = {
-    name: "Arin2",
-    age: 32,
-    locate: "ON"
+// array inside array
+const mergedHobbies = [hobbies, newHobbies];
+console.log(mergedHobbies);
+/*
+    the result is array inside array
+    [Array(2), Array(1)]  
+    0 : Array(2)
+        0 : "Sports"
+        1 : "Cooling"
+        length : 2
+    1 : Array(1)
+        0 : "Reading"
+        length : 1
+    length : 2
+*/
+
+// spread operator
+const mergedHobbies2 = [...hobbies, ...newHobbies];
+console.log(mergedHobbies2);
+/*
+    ['Sports', 'Cooling', 'Reading']
+    0 : "Sports"
+    1 : "Cooling"
+    2 : "Reading"
+    length : 3
+*/
+
+// Object
+const extendedUser = {
+    isAdmin: true,
+    ...user
 };
-
-console.log(userName);
-console.log(locate);
+console.log(extendedUser);
+/*
+    {isAdmin: true, name: 'Arin', age: 31}
+        age : 31
+        isAdmin : true
+        name : "Arin"
+*/
