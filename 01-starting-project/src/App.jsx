@@ -1,5 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
-import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data';
 
 const reactDesc = ['Fundamental', 'Crucial', 'Core'];
 
@@ -22,12 +22,13 @@ function Header() {
   );
 }
 
-function CoreConcept(props) {
+// {} uses to destructor the first parameter (ie. props)
+function CoreConcept({image, title, desc}) {
   return (
     <li>
-      <img src={props.img} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.desc}</p>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{desc}</p>
     </li>
   );
 }
@@ -40,10 +41,14 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concept</h2>
           <ul>
-            <CoreConcept title="Components" desc="The core UI building block." img={componentsImg} />
-            <CoreConcept />
-            <CoreConcept />
-            <CoreConcept />
+            <CoreConcept
+              title={CORE_CONCEPTS[0].title}
+              desc={CORE_CONCEPTS[0].desc}
+              image={CORE_CONCEPTS[0].image} />
+            {/* short hand version */}
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
         <h2>Time to get started!</h2>
