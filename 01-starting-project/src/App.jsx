@@ -1,15 +1,15 @@
+import { useState } from 'react' // react hook
 import { CORE_CONCEPTS } from './data'
 import Header from './components/Header.jsx'
 import CoreConcept from './components/CoreConcept.jsx'
 import TabButton from './components/TabButton.jsx'
 
 function App() {
-  // by default React will execute the component only once when it first encounter
-  let tabContent = 'Please click a button'
+  const [selectedTopic, setSelectedTopic] = useState('Please click a button')
 
   function handleSelect(selectedButton) {
-    tabContent = selectedButton
-    console.log(tabContent)
+    setSelectedTopic(selectedButton)
+    console.log(selectedTopic)
   }
 
   console.log('APP CPMPONENT EXE') // 1 time
@@ -40,7 +40,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {tabContent}
+          {selectedTopic}
         </section>
       </main>
     </div>
